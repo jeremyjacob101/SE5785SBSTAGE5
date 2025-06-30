@@ -1,0 +1,135 @@
+/* reset & basics */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* league selector */
+.selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.selector__label {
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+#sport-select {
+    margin-right: 1rem;
+    padding: 0.25rem;
+}
+
+.league-label {
+    font-size: 1.2rem;
+}
+
+/* ticker as a carousel of cards */
+.ticker {
+    background: #111;
+    padding: 1rem 0;
+    overflow: hidden;
+}
+
+.ticker__wrap {
+    display: flex;
+    align-items: center;
+    will-change: transform;
+    animation: scroll-left 20s linear infinite;
+}
+
+/* each item is now a card */
+.ticker__item {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    min-width: 220px;
+    /* same as scoreboard cards */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    color: #333;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* scoreboard grid */
+.scoreboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* game card */
+.game-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.teams {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.team {
+    text-align: center;
+    flex: 1;
+}
+
+.team:not(:last-child) {
+    border-right: 1px solid #eee;
+}
+
+.team-name {
+    font-weight: bold;
+}
+
+.score {
+    font-size: 1.5rem;
+    margin: 0.25rem 0;
+}
+
+.status {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.ticker__item .teams {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.ticker__item .status {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
