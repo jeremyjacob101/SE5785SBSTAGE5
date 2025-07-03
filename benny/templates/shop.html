@@ -1,0 +1,98 @@
+<!-- templates/shop.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        form {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        form input[type="text"] {
+            padding: 5px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        form label {
+            margin-right: 10px;
+        }
+
+        form button {
+            padding: 6px 12px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .item {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        .item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .item h3 {
+            margin: 10px 0 5px;
+        }
+
+        .item p {
+            margin: 0;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Shop</h1>
+
+    <!-- Search and Filters -->
+    <form method="get">
+        <input type="text" name="search" placeholder="Search..." value="{{ search }}" />
+
+        {% set sport_filters = ['Baseball', 'Hockey', 'Basketball', 'Football', 'Soccer', 'Cricket', 'Rugby', 'Tennis'] %}
+        {% for sport in sport_filters %}
+            <label>
+                <input type="checkbox" name="filter" value="{{ sport }}" {% if sport in filters %}checked{% endif %}>
+                {{ sport }}
+            </label>
+        {% endfor %}
+
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Product Grid -->
+    <div class="container">
+        {% for item in items %}
+        <div class="item">
+            <img src="{{ item.image }}" alt="{{ item.name }}">
+            <h3>{{ item.name }}</h3>
+            <p>${{ "%.2f"|format(item.price) }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
