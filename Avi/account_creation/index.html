@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Account Creation | FanAddicts</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">Create Account</div>
+      <form id="accountForm">
+        <div class="field">
+          <input type="text" id="username" required />
+          <label for="username">Username</label>
+        </div>
+        <div class="field">
+          <input type="email" id="email" required />
+          <label for="email">Email Address</label>
+        </div>
+        <div class="field">
+          <input type="password" id="password" required />
+          <label for="password">Password</label>
+        </div>
+        <div class="field">
+          <input type="date" id="birthday" required />
+          <label for="birthday">Birthday</label>
+        </div>
+        <div class="field">
+          <input type="submit" value="Create Account" />
+        </div>
+        <div id="message"></div>
+      </form>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
